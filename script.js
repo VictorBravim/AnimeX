@@ -645,3 +645,53 @@ function updateAnimeCount(count) {
     let animeCount = document.querySelector("#animeCount");
     animeCount.innerText = count;
 }
+
+function openLoginModal() {
+    // Abrir o modal de login usando jQuery (Bootstrap requer jQuery para modais)
+    $('#loginModal').modal('show');
+}
+
+function openSignupModal() {
+    // Abrir o modal de cadastro usando jQuery (Bootstrap requer jQuery para modais)
+    $('#signupModal').modal('show');
+}
+
+// Event listener para o formulário de login
+$('#loginForm').on('submit', function (event) {
+    event.preventDefault();
+    const email = $('#loginEmail').val();
+    const password = $('#loginPassword').val();
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Login bem-sucedido, feche o modal e faça outras ações necessárias
+            $('#loginModal').modal('hide');
+            const user = userCredential.user;
+            console.log('Usuário logado:', user.uid);
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error('Erro ao fazer login:', errorCode, errorMessage);
+        });
+});
+
+// Event listener para o formulário de cadastro
+$('#signupForm').on('submit', function (event) {
+    event.preventDefault();
+    const email = $('#signupEmail').val();
+    const password = $('#signupPassword').val();
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Cadastro bem-sucedido, feche o modal e faça outras ações necessárias
+            $('#signupModal').modal('hide');
+            const user = userCredential.user;
+            console.log('Novo usuário cadastrado:', user.uid);
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error('Erro ao cadastrar:', errorCode, errorMessage);
+        });
+});
