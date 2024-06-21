@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-br" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Anime List">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/webp" href="/img/icon.webp" />
+    <link href="/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script defer src="https://kit.fontawesome.com/7ed19c3a98.js" crossorigin="anonymous"></script>
+    <title>AnimeX</title>
+</head>
+
+<body class="container-fluid overflow-x-hidden overflow-y-scroll">
+    <div id="app" class="position-relative">
+        <header class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img class="" style="width:3rem; height: 3rem;" src="/img/icon.webp" alt="Anime logo" />
+                <div class="titulos">
+                    <div class="fw-bold fs-4 lh-sm titulo">AnimeX</div>
+                    <span class="d-block p-0 m-0 lh-sm" style="font-size: .7rem;">アニメリスト</span>
+                </div>
+            </div>
+            <div>Animes <span id="animeCount" class="badge bg-orange">0</span></div>
+            <nav class="dropdown" style="z-index:99">
+                <button class="btn btn-secondary shadow dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" aria-label="main menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <ul class="dropdown-menu pt-0 shadow ">
+                    <li class="px-2 pt-2">
+                        <button class="btn btn-info w-100" data-bs-toggle="modal" data-bs-target="#addAnimeModal">
+                            <i class="fa-solid fa-plus"></i> Add Anime
+                        </button>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <div class="input-group mb-3 mt-3">
+                        <input type="text" class="form-control" placeholder="Pesquisar animes" id="searchAnimeTxT">
+                    </div>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item position-relative" href="#" onclick="">Sobre</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div id="list"
+            class="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-5 mb-4">
+        </div>
+        <div id="addbuttonatbottom" class="position-fixed start-50 bottom-0 w-auto d-none">
+            <button class="btn btn-info rounded-circle mb-3" data-bs-toggle="modal" data-bs-target="#addAnimeModal"
+                aria-label="Add new anime"
+                style="width:3rem !important; height: 3rem!important;transform: translateX(-1.5rem);">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+        <div class="modal fade" id="addAnimeModal" tabindex="-1" aria-labelledby="searchModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title d-flex" id="searchModal">
+                            <img class="" style="height: 3rem;" src="/img/icon.webp" alt="AnimeX logo" />
+                            <div>
+                                <div class="fs-6 text-secondary-emphasis mt-2 m-3">Adicionar novo anime ao AnimeX</div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col d-flex">
+                            <input onsearch="fetchAnimeData()" type="search"
+                                class="form-control me-2 bg-secondary-subtle border border-2 border-secondary-subtle"
+                                id="searchText" list="AnimeXDatalist" placeholder="Nome do Anime">
+                            <datalist id="AnimeXDatalist">
+                            </datalist>
+                            <button class="btn btn-info w-auto d-flex align-items-center" type="button"
+                                onclick="fetchAnimeData()">
+                                <span class="spinner-border d-none spinner-border-sm me-2" role="status"
+                                    aria-hidden="true"></span>
+                                <span>Procurar</span></button>
+                        </div>
+                        <ul class="list-group py-3" id="resultList">
+                        </ul>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <div class="d-flex">
+                            <button class="btn btn-info btn-sm w-auto d-flex align-items-center me-1" type="button"
+                                onclick="fetchAnimeData('mostPopular')">
+                                <span>Animes Populares</span>
+                            </button>
+                            <button class="btn btn-info btn-sm w-auto d-flex align-items-center" type="button"
+                                onclick="fetchAnimeData('mostRating')">
+                                <span>Melhor classificação</span>
+                            </button>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Pronto</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script defer src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore-compat.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
