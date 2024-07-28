@@ -15,7 +15,7 @@ This project is a web application designed to manage a personal list of animes. 
 
 ## 🔧 Installation
 
-1. Clone the repository:
+1. Clone the repository: 
 
 ```
 git clone https://github.com/VictorBravim/AnimeX.git
