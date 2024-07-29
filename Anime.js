@@ -1,1 +1,1 @@
-console.log("Anime")
+console.log("Animes")
