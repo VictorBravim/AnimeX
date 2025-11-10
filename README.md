@@ -1,44 +1,43 @@
-# ⛩️ AnimeX
+# AnimeX
 
 ![image 1](https://github.com/VictorBravim/AnimeX/assets/122113588/6ed5cccd-4af4-4949-be3b-19669b86b36d)
 
+## <code>Introdução</code>
 
-## 🚀 Overview
+Este projeto é uma aplicação web desenvolvida para gerenciar uma lista pessoal de animes. Ele utiliza a API Kitsu para buscar dados de anime e Firestore para armazenamento de dados. O aplicativo renderiza com eficiência a lista de animes, carregando em lotes, suportando até 400 animes. Os principais recursos incluem a capacidade de editar nomes de animes e contagens de episódios com atualizações instantâneas, pesquisar animes salvos e excluir entradas. O projeto é construído usando apenas três arquivos: HTML, CSS e JavaScript.
 
-This project is a web application designed to manage a personal list of animes. It utilizes the Kitsu API for fetching anime data and Firestore for data storage. The application efficiently renders the anime list by loading in batches, supporting up to 400 animes. Key features include the ability to edit anime names and episode counts with instant updates, search saved animes, and delete entries. The project is built using just three files: HTML, CSS, and JavaScript.
-
-## 📋 Requirements
+## <code>Pré-requisitos</code>
 
 - Node.js
 - Firestore
 - Kitsu API
 
-## 🔧 Installation
+## <code>Configuração</code>
 
-1. Clone the repository: 
+1. Clone este repositório:
 
 ```
 git clone https://github.com/VictorBravim/AnimeX.git
 ```
 
-2. Navigate to the project directory:
+2. Navegue até o diretório do projeto:
 
 ```
 cd AnimeX
 ```
 
-3. Install the dependencies:
+3. Instale dependências:
 
 ```
 Exchange firebase data with your firebase data
 ```
 
-## 🛠️ Project Structure
+## <code>Estrutura</code>
 
-- Index: Contains Project structure.
-- Style: Contains global CSS styles.
-- Script: JavaScript configuration file.
+- Index: Contém estrutura do Projeto.
+- Style: Contém estilos CSS globais.
+- Script: arquivo de configuração JavaScript.
 
-## 📄 License
+## <code>Licença</code>
 
-- This project is licensed under the [MIT License](LICENSE).
+- Este projeto está licenciado sob a [Licença MIT](LICENSE).
